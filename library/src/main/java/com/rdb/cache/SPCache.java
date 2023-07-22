@@ -16,16 +16,16 @@ public class SPCache {
         appSP = SPCache.context.getSharedPreferences(name, Context.MODE_PRIVATE);
     }
 
-    protected static SharedPreferences getSharedPreferencesByType() {
+    protected static SharedPreferences getSharedPreferences() {
         return appSP;
     }
 
     public static void clearSharedPreferences() {
-        getSharedPreferencesByType().edit().clear().commit();
+        getSharedPreferences().edit().clear().commit();
     }
 
     public static void putObject(String key, Object obj) {
-        Editor editor = getSharedPreferencesByType().edit();
+        Editor editor = getSharedPreferences().edit();
         if (obj == null) {
             editor.remove(key);
         } else {
@@ -35,13 +35,13 @@ public class SPCache {
     }
 
     public static void remove(String key) {
-        Editor editor = getSharedPreferencesByType().edit();
+        Editor editor = getSharedPreferences().edit();
         editor.remove(key);
         editor.commit();
     }
 
     public static void putString(String key, String value) {
-        Editor editor = getSharedPreferencesByType().edit();
+        Editor editor = getSharedPreferences().edit();
         if (value == null) {
             editor.remove(key);
         } else {
@@ -51,32 +51,32 @@ public class SPCache {
     }
 
     public static void putInt(String key, int value) {
-        Editor editor = getSharedPreferencesByType().edit();
+        Editor editor = getSharedPreferences().edit();
         editor.putInt(key, value);
         editor.commit();
     }
 
     public static void putLong(String key, long value) {
-        Editor editor = getSharedPreferencesByType().edit();
+        Editor editor = getSharedPreferences().edit();
         editor.putLong(key, value);
         editor.commit();
     }
 
     public static void putFloat(String key, float value) {
-        Editor editor = getSharedPreferencesByType().edit();
+        Editor editor = getSharedPreferences().edit();
         editor.putFloat(key, value);
         editor.commit();
     }
 
     public static void putBoolean(String key, boolean value) {
-        Editor editor = getSharedPreferencesByType().edit();
+        Editor editor = getSharedPreferences().edit();
         editor.putBoolean(key, value);
         editor.commit();
     }
 
     public static <T> T getObject(String key, Class<T> tClass) {
         try {
-            String value = getSharedPreferencesByType().getString(key, null);
+            String value = getSharedPreferences().getString(key, null);
             return converter.toObject(value, tClass);
         } catch (Exception e) {
             return null;
@@ -85,7 +85,7 @@ public class SPCache {
 
     public static String getString(String key, String defValue) {
         try {
-            return getSharedPreferencesByType().getString(key, defValue);
+            return getSharedPreferences().getString(key, defValue);
         } catch (Exception e) {
             return defValue;
         }
@@ -93,7 +93,7 @@ public class SPCache {
 
     public static boolean getBoolean(String key, boolean defValue) {
         try {
-            return getSharedPreferencesByType().getBoolean(key, defValue);
+            return getSharedPreferences().getBoolean(key, defValue);
         } catch (Exception e) {
             return defValue;
         }
@@ -101,7 +101,7 @@ public class SPCache {
 
     public static int getInt(String key, int defValue) {
         try {
-            return getSharedPreferencesByType().getInt(key, defValue);
+            return getSharedPreferences().getInt(key, defValue);
         } catch (Exception e) {
             return defValue;
         }
@@ -109,7 +109,7 @@ public class SPCache {
 
     public static long getLong(String key, long defValue) {
         try {
-            return getSharedPreferencesByType().getLong(key, defValue);
+            return getSharedPreferences().getLong(key, defValue);
         } catch (Exception e) {
             return defValue;
         }
@@ -117,7 +117,7 @@ public class SPCache {
 
     public static float getFloat(String key, float defValue) {
         try {
-            return getSharedPreferencesByType().getFloat(key, defValue);
+            return getSharedPreferences().getFloat(key, defValue);
         } catch (Exception e) {
             return defValue;
         }
