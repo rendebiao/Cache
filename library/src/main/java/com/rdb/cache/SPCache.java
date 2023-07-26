@@ -16,7 +16,7 @@ public class SPCache {
         appSP = SPCache.context.getSharedPreferences(name, Context.MODE_PRIVATE);
     }
 
-    protected static SharedPreferences getSharedPreferences() {
+    private static SharedPreferences getSharedPreferences() {
         return appSP;
     }
 
