@@ -5,5 +5,5 @@ public enum ObjectColumn {
     object_value,
     object_type,
     object_time,
-    object_deadline;
+    object_deadline
 }
