@@ -1,6 +1,7 @@
 # Cache
 
 数据缓存
+    
     GsonConverter converter = new GsonConverter();
     SPCache.init(this, "cache", converter);//SharedPreferences
     DBCache.init(this, "cache", new TimeProvider() {//
