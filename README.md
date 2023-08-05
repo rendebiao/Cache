@@ -2,9 +2,9 @@
 
 数据缓存
     
-    GsonConverter converter = new GsonConverter();
+    JsonConverter converter = new JsonConverter(){...};
     SPCache.init(this, "cache", converter);//SharedPreferences
-    DBCache.init(this, "cache", new TimeProvider() {//
+    DBCache.init(this, "cache", new TimeProvider() {//数据库
         @Override
         public long getCurTimeMillis() {
             return System.currentTimeMillis();
